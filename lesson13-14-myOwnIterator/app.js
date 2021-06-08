@@ -20,16 +20,16 @@ const myOwnIterable = {
     };
   },
 };
-
+console.log('myOwnIterable');
 for (const iterator of myOwnIterable) {
   console.log(iterator);
 }
 
 const myOwnAsyncIterable = {
   urls: [
-    "https://jsonplaceholder.typicode.com/todos/1",
-    "https://jsonplaceholder.typicode.com/todos/2",
-    "https://jsonplaceholder.typicode.com/todos/3",
+    'https://jsonplaceholder.typicode.com/todos/1',
+    'https://jsonplaceholder.typicode.com/todos/2',
+    'https://jsonplaceholder.typicode.com/todos/3',
   ],
   index: 0,
   [Symbol.asyncIterator]() {
@@ -42,6 +42,7 @@ const myOwnAsyncIterable = {
 
         const response = await fetch(self.urls[self.index]);
         const exractedData = await response.json();
+        await new Promise((resolve) => setTimeout(() => resolve(), 3000));
         const result = {
           value: exractedData,
           done: false,
@@ -53,6 +54,7 @@ const myOwnAsyncIterable = {
   },
 };
 
+console.log('myOwnAsyncIterable');
 async function asyncLoop() {
   for await (const iterator of myOwnAsyncIterable) {
     console.log(iterator);
