@@ -1,3 +1,5 @@
+// lesson 32
+// # deno run --allow-net --allow-write fetch_web_contents.ts
 const buffer = new Uint8Array(1024);
 
 console.log('Please enter a URL');
