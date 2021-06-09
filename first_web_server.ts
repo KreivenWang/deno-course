@@ -21,9 +21,9 @@
 // Download https://deno.land/std@0.97.0/io/types.d.ts
 // Check file:///E:/_Dev/GithubRepo/deno-course/first_web_server.ts
 // http://localhost:8000/
-import { serve } from 'https://deno.land/std@0.97.0/http/server.ts';
+import { serve } from "https://deno.land/std@0.97.0/http/server.ts";
 const server = serve({ port: 8000 });
-console.log('http://localhost:8000/');
+console.log("http://localhost:8000/");
 for await (const req of server) {
-  req.respond({ body: 'Hello World\n' });
+  req.respond({ body: "Hello World\n" });
 }

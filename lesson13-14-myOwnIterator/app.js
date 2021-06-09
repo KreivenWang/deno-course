@@ -7,8 +7,9 @@ const myOwnIterable = {
   [Symbol.getIterator](self) {
     return {
       next() {
-        if (self.index === self.values.length)
+        if (self.index === self.values.length) {
           return { value: null, done: true };
+        }
 
         const result = {
           value: self.values[self.index],
@@ -20,16 +21,16 @@ const myOwnIterable = {
     };
   },
 };
-console.log('myOwnIterable');
+console.log("myOwnIterable");
 for (const iterator of myOwnIterable) {
   console.log(iterator);
 }
 
 const myOwnAsyncIterable = {
   urls: [
-    'https://jsonplaceholder.typicode.com/todos/1',
-    'https://jsonplaceholder.typicode.com/todos/2',
-    'https://jsonplaceholder.typicode.com/todos/3',
+    "https://jsonplaceholder.typicode.com/todos/1",
+    "https://jsonplaceholder.typicode.com/todos/2",
+    "https://jsonplaceholder.typicode.com/todos/3",
   ],
   index: 0,
   [Symbol.asyncIterator]() {
@@ -54,7 +55,7 @@ const myOwnAsyncIterable = {
   },
 };
 
-console.log('myOwnAsyncIterable');
+console.log("myOwnAsyncIterable");
 async function asyncLoop() {
   for await (const iterator of myOwnAsyncIterable) {
     console.log(iterator);
