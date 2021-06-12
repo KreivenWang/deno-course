@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Goals</title>
+    <link rel="stylesheet" href="course_goals.css">
 </head>
 
 <body>
@@ -13,9 +14,16 @@
         <%= title %>
     </h2>
     <form action="/add-goal" method="POST">
-        <input type="text" name="new-goal">
-        <button type="submit">Add Goal</button>
+        <input class="box" type="text" name="new-goal">
+        <button class="box" type="submit">Add Goal</button>
     </form>
+    <ul>
+        <% for (let i=0; i < goals.length; i++) {%>
+            <li>
+                <%= goals[i].name %>
+            </li>
+            <% } %>
+    </ul>
 </body>
 
 </html>

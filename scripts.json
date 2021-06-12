@@ -4,8 +4,7 @@
     "start": {
       "cmd": "deno run src/web_server.ts",
       "desc": "run web_server.ts file",
-      "allow": ["net", "read"],
-      "importmap": "import_map.json"
+      "allow": ["net", "read"]
     },
     "hello-oak": {
       "cmd": "deno run lessons/hello_oak.ts",
