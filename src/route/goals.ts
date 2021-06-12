@@ -7,13 +7,10 @@ const router = new Router();
 const courseGoals: Goal[] = [];
 
 router.get("/", async (ctx, next) => {
-  const body = await renderFileToString(
-    Deno.cwd() + "/src/view/course_goals.ejs",
-    {
-      title: "All Goals",
-      goals: courseGoals,
-    }
-  );
+  const body = await renderFileToString(Deno.cwd() + "/src/view/course_goals.ejs", {
+    title: "All Goals",
+    goals: courseGoals,
+  });
   ctx.response.body = body;
   await next();
 });

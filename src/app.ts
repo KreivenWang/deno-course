@@ -1,8 +1,4 @@
-import {
-  Application,
-  send,
-  Status,
-} from "https://deno.land/x/oak@v7.5.0/mod.ts";
+import { Application, send, Status } from "https://deno.land/x/oak@v7.5.0/mod.ts";
 import { renderFileToString } from "https://deno.land/x/dejs@0.9.3/mod.ts";
 import { goalsRouter } from "./route/goals.ts";
 
@@ -13,14 +9,9 @@ app.use(async (ctx, next) => {
   try {
     console.log(`--> ${ctx.request.method} ${ctx.request.url.href}`);
     await next();
-    console.log(
-      `<-- ${ctx.request.method} ${ctx.request.url.href} ${ctx.response.status}`
-    );
+    console.log(`<-- ${ctx.request.method} ${ctx.request.url.href} ${ctx.response.status}`);
     if (ctx.response.status === Status.NotFound) {
-      const body = await renderFileToString(
-        Deno.cwd() + "/src/view/404.ejs",
-        {}
-      );
+      const body = await renderFileToString(Deno.cwd() + "/src/view/404.ejs", {});
       ctx.response.body = body;
     }
   } catch (err) {
