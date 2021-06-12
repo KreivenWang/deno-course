@@ -1,15 +1,24 @@
 {
   "$schema": "https://deno.land/x/denon@2.4.7/schema.json",
   "scripts": {
+    "hello-oak": {
+      "cmd": "deno run lessons/hello_oak.ts",
+      "desc": "run hello_oak.ts file",
+      "allow": ["net"]
+    },
     "start": {
       "cmd": "deno run src/app.ts",
       "desc": "run entry point: app.ts file",
       "allow": ["net", "read"]
     },
-    "hello-oak": {
-      "cmd": "deno run lessons/hello_oak.ts",
-      "desc": "run hello_oak.ts file",
-      "allow": ["net"]
+    "compile": {
+      "cmd": "deno compile -o dist/course_goal --target x86_64-pc-windows-msvc src/app.ts -p 8000",
+      "desc": "compile into exe",
+      "allow": ["net", "read"]
+    },
+    "build": {
+      "cmd": "deno bundle src/app.ts dist/app.js",
+      "desc": "please copy cmd and run in terminal"
     }
   }
 }
