@@ -6,15 +6,7 @@ const router = new Router();
 
 const courseGoals: Goal[] = [];
 
-router.get("/", async (ctx, next) => {
-  const body = await renderFileToString(Deno.cwd() + "/src/view/course_goals.ejs", {
-    title: "All Goals",
-    goals: courseGoals,
-  });
-  ctx.response.body = body;
-  await next();
-});
-
+//CREATE
 router.post("/add-goal", async (ctx, next) => {
   const body = ctx.request.body();
   const params = (await body.value) as URLSearchParams;
@@ -25,6 +17,16 @@ router.post("/add-goal", async (ctx, next) => {
   const newGoal: Goal = { id: new Date().toUTCString(), name: goalName };
   courseGoals.push(newGoal);
   ctx.response.redirect("/");
+  await next();
+});
+
+//READ
+router.get("/", async (ctx, next) => {
+  const body = await renderFileToString(Deno.cwd() + "/src/view/course_goals.ejs", {
+    title: "All Goals",
+    goals: courseGoals,
+  });
+  ctx.response.body = body;
   await next();
 });
 

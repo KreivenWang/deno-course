@@ -5,20 +5,20 @@
 html,
 body {
   padding: 0 10px;
-  background-color: #303030;
+  background-color: #1d1d1d;
 }
 
 .box {
   margin: 10px 15px;
-  border-radius: 8px;
-  border: solid 1px #ffffff;
-  box-shadow: 0 0 5px #888888;
+  border-radius: 4px;
+  border: solid 1px #70674c;
+  box-shadow: 0 0 5px #554351;
   padding: 5px 15px;
-  background-color: rgb(138, 105, 128);
+  background-color: #362b30;
   font-size: 16px;
 }
 
 .box:hover {
-  background-color: rgb(173, 133, 161);
+  background-color: #52424e;
   box-shadow: 0 0 6prgb (102, 78, 95);
 }

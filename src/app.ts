@@ -20,7 +20,7 @@ app.use(async (ctx, next) => {
   }
 });
 
-// handle resource responses
+// handle static resources requests
 app.use(async (ctx, next) => {
   if (ctx.request.url.pathname.startsWith("/static")) {
     console.log("respond css resources", ctx.request.url.pathname);
